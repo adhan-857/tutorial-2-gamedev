@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://bq8nwfb04lxbc"]
+
+[ext_resource type="Texture2D" uid="uid://b2hah5a41g4oa" path="res://assets/Snowy Mountain.png" id="1_0yq5l"]
+[ext_resource type="Script" path="res://scenes/PlatformBaru.gd" id="1_8411g"]
+[ext_resource type="PackedScene" uid="uid://ber2mc4rer5uw" path="res://scenes/SnowPlatform.tscn" id="2_cdw8q"]
+[ext_resource type="PackedScene" uid="uid://c46oabniqhlv" path="res://scenes/GreenShip.tscn" id="3_1xh43"]
+[ext_resource type="Script" path="res://scenes/ObjectiveAreaBaru.gd" id="5_arooa"]
+[ext_resource type="Script" path="res://scenes/WarningKetinggian.gd" id="6_vhg05"]
+[ext_resource type="Script" path="res://scenes/WarningJatuh.gd" id="7_68yt0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fs4t8"]
+size = Vector2(117.375, 111.5)
+
+[node name="LevelBaru" type="Node"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="SnowyMountain" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("1_0yq5l")
+
+[node name="PlatformBaru" type="Node2D" parent="."]
+position = Vector2(35, 565)
+script = ExtResource("1_8411g")
+
+[node name="SnowPlatform" parent="PlatformBaru" instance=ExtResource("2_cdw8q")]
+
+[node name="SnowPlatform2" parent="PlatformBaru" instance=ExtResource("2_cdw8q")]
+position = Vector2(70, 0)
+
+[node name="SnowPlatform3" parent="PlatformBaru" instance=ExtResource("2_cdw8q")]
+position = Vector2(140, -50)
+
+[node name="SnowPlatform4" parent="PlatformBaru" instance=ExtResource("2_cdw8q")]
+position = Vector2(-70, -50)
+
+[node name="GreenShip" parent="." instance=ExtResource("3_1xh43")]
+position = Vector2(72.701, 421.901)
+
+[node name="ObjectiveArea" type="Area2D" parent="."]
+script = ExtResource("5_arooa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectiveArea"]
+position = Vector2(773.313, 96.25)
+shape = SubResource("RectangleShape2D_fs4t8")
+
+[node name="AreaKetinggian" type="Area2D" parent="."]
+script = ExtResource("6_vhg05")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaKetinggian"]
+position = Vector2(576, -2792)
+scale = Vector2(10, 50)
+shape = SubResource("RectangleShape2D_fs4t8")
+
+[node name="AreaJatuh" type="Area2D" parent="."]
+position = Vector2(0, 1208)
+scale = Vector2(1, 0.1)
+script = ExtResource("7_68yt0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaJatuh"]
+position = Vector2(576, -2792)
+scale = Vector2(10, 50)
+shape = SubResource("RectangleShape2D_fs4t8")
+
+[connection signal="body_entered" from="ObjectiveArea" to="ObjectiveArea" method="_on_ObjectiveArea_body_entered"]
+[connection signal="body_entered" from="AreaKetinggian" to="AreaKetinggian" method="_on_ObjectiveArea_body_entered"]
+[connection signal="body_entered" from="AreaJatuh" to="AreaJatuh" method="_on_ObjectiveArea_body_entered"]

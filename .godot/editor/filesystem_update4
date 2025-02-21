@@ -1,5 +1,14 @@
+res://scenes/PlatformBlue.gd
 res://default_env.tres
 res://scenes/MainLevel.tscn
-res://scenes/StonePlatform.tscn
+res://scenes/PlatformBaru.gd
+res://scenes/LevelBaru.tscn
 res://scenes/BlueShip.tscn
-res://scenes/PlatformBlue.gd
+res://scenes/StonePlatform.tscn
+res://scenes/SnowPlatform.tscn
+res://scenes/GreenShip.tscn
+res://scenes/BlueShip2.tscn
+res://scenes/ObjectiveAreaBaru.gd
+res://scenes/WarningKetinggian.gd
+res://scenes/WarningJatuh.gd
+res://scenes/ObjectiveArea.gd
