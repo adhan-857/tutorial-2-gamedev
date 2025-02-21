@@ -36,7 +36,7 @@ Reached objective!
 <br>
 
 #### Ubah nilai atribut `Disabled` pada tipe `CollisionShape2D` di *scene* `StonePlatform`, lalu coba jalankan *scene* `MainLevel`. Apa yang terjadi?
-> Setelah mengubah nilai atribut `Disabled` pada tipe `CollisionShape2D` di *scene* `StonePlatform`, objek `BlueShip` akan jatuh begitu saja saat scene dijalankan. Hal ini terjadi karena dengan menonaktifkan *CollisionShape2D* pada `StonePlatform`, platform tidak lagi memiliki bentuk *collision* yang bisa mendeteksi tumbukan dengan `BlueShip`. Sebagai hasilnya, `BlueShip` tidak akan terhalang oleh platform dan terus jatuh, meskipun tidak ada perubahan pada atribut fisika pesawat itu sendiri.
+> Setelah mengubah nilai atribut `Disabled` pada tipe `CollisionShape2D` di *scene* `StonePlatform`, objek `BlueShip` akan jatuh begitu saja saat scene dijalankan. Hal ini terjadi karena dengan menonaktifkan `CollisionShape2D` pada `StonePlatform`, platform tidak lagi memiliki bentuk *collision* yang bisa mendeteksi tumbukan dengan `BlueShip`. Sebagai hasilnya, `BlueShip` tidak akan terhalang oleh platform dan terus jatuh, meskipun tidak ada perubahan pada atribut fisika pesawat itu sendiri.
 <br>
 
 #### Pada *scene* `MainLevel`, coba manipulasi atribut `Position`, `Rotation`, dan `Scale` milik *node* `BlueShip` secara bebas. Apa yang terjadi pada visualisasi `BlueShip` di Viewport?
